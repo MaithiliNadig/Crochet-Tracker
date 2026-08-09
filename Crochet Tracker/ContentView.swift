@@ -130,6 +130,7 @@ var body: some View {
                             ProjectDetailView(
                                 title: project.title,
                                 imageURL: thumbnailURL(from: project.youtubeURL),
+                                youtubeURL: project.youtubeURL,
                                 difficulty: project.difficulty,
                                 description: project.description,
                                 color: cardColor(for: project.category)

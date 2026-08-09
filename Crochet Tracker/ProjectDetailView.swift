@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import SafariServices
 
 struct ProjectDetailView: View {
 
     let title: String
     let imageURL: String
+    let youtubeURL: String
     let difficulty: String
     let description: String
     let color: Color
@@ -59,11 +61,15 @@ struct ProjectDetailView: View {
                         .font(.body)
                 }
 
-                Button {
+            Button {
 
-                } label: {
+                if let url = URL(string: youtubeURL) {
+                    UIApplication.shared.open(url)
+                }
 
-                    Text("Watch Tutorial →")
+            } label: {
+
+                Text("Watch Tutorial →")
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding()
@@ -85,13 +91,13 @@ struct ProjectDetailView: View {
     NavigationStack {
 
         ProjectDetailView(
-            
-                title: "Teddy Bear Plushie",
-                imageURL: "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-                difficulty: "Beginner",
-                description: "A cute beginner-friendly teddy bear project that helps you practice the magic ring and basic crochet stitches.",
-                color: Color.pink.opacity(0.20)
-            )
+            title: "Teddy Bear Plushie",
+            imageURL: "https://img.youtube.com/vi/NJfBHW-kQy0/hqdefault.jpg",
+            youtubeURL: "https://www.youtube.com/watch?v=NJfBHW-kQy0",
+            difficulty: "Beginner",
+            description: "A cute beginner-friendly teddy bear that's perfect for learning the magic ring.",
+            color: Color.pink.opacity(0.20)
+        )
 
     }
 }
